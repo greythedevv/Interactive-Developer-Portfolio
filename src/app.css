@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/syne/700.css';
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --accent: #00ff88;
+  --accent2: #7b61ff;
+  --text: #e8e8f0;
+  --muted: #6b6b80;
+  --border: rgba(255,255,255,0.08);
+  --radius: 12px;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg: #f4f4f0;
+  --surface: #ffffff;
+  --text: #0a0a0f;
+  --muted: #6b6b80;
+  --border: rgba(0,0,0,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

@@ -1,11 +1,27 @@
-<script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+<script>
+  import '../app.css';
+  import Navbar from '$lib/components/Navbar.svelte';
+  import { theme } from '$lib/stores/theme';
+  import { onMount } from 'svelte';
+  import { page } from '$app/stores';
 
-	let { children } = $props();
+  // Page transition state
+  let transitioning = false;
+  $: $page, (transitioning = true), setTimeout(() => (transitioning = false), 400);
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<Navbar />
 
-{@render children()}
+<main class:transitioning>
+  <slot />
+</main>
+
+<style>
+  main {
+    min-height: 100vh;
+    transition: opacity 0.3s ease;
+  }
+  main.transitioning {
+    opacity: 0;
+  }
+</style>
