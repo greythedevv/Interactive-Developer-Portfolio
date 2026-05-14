@@ -1,10 +1,11 @@
-// src/lib/stores/theme.js
-import { writable } from 'svelte/store';
-import { browser } from '$app/environment';
+<script lang="ts">
+	import favicon from '$lib/assets/favicon.svg';
 
-const saved = browser ? localStorage.getItem('theme') : 'dark';
-export const theme = writable(saved || 'dark');
+	let { children } = $props();
+</script>
 
-theme.subscribe(val => {
-  if (browser) localStorage.setItem('theme', val);
-});
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
+
+{@render children()}
