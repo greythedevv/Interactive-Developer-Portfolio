@@ -1,12 +1,18 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
-const stored = browser ? localStorage.getItem('theme') ?? 'dark' : 'dark';
+type Theme = 'light' | 'dark';
 
-export const theme = writable(stored);
+const initialTheme: Theme =
+	browser && localStorage.getItem('theme') === 'dark'
+		? 'dark'
+		: 'light';
 
-theme.subscribe((val) => {
-  if (!browser) return;
-  localStorage.setItem('theme', val);
-  document.documentElement.setAttribute('data-theme', val);
+export const theme = writable<Theme>(initialTheme);
+
+theme.subscribe((val: Theme) => {
+	if (browser) {
+		document.documentElement.dataset.theme = val;
+		localStorage.setItem('theme', val);
+	}
 });
