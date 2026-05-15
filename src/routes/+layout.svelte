@@ -4,6 +4,7 @@
   import { theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
+    import Footer from '$lib/components/Footer.svelte';
 
   // Page transition state
   let transitioning = false;
@@ -12,9 +13,10 @@
 
 <Navbar />
 
-<main class:transitioning>
+<main id="main-content" class:transitioning>
   <slot />
 </main>
+<Footer />
 
 <style>
   main {

@@ -8,14 +8,14 @@
   <div class="tag">Available for work</div>
   <h1>
     <span class="line">Hi, I'm</span>
-    <span class="line name">Your Name<span class="accent">.</span></span>
+    <span class="line name">GREATNESS <span class="accent">.</span></span>
   </h1>
   <p class="sub">Frontend Engineer · I build fast, beautiful, interactive web experiences.</p>
 
   <div class="cta">
     <a href="#projects" class="btn-primary">View Projects →</a>
-    <a href="https://github.com/you" target="_blank" rel="noreferrer" class="btn-ghost">GitHub</a>
-    <a href="https://linkedin.com/in/you" target="_blank" rel="noreferrer" class="btn-ghost">LinkedIn</a>
+    <a href="https://github.com/greythedevv" target="_blank" rel="noreferrer" class="btn-ghost">GitHub</a>
+    <a href="https://linkedin.com/in/greatnessoluwole" target="_blank" rel="noreferrer" class="btn-ghost">LinkedIn</a>
   </div>
 
   <div class="bg-glow" aria-hidden="true"></div>
@@ -27,10 +27,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 8rem 2.5rem 4rem;
+     padding: 8rem 1.25rem 4rem;
     position: relative;
     overflow: hidden;
     opacity: 0;
+     box-sizing: border-box;
+    overflow-x: hidden;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }

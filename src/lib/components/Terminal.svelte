@@ -9,7 +9,7 @@
     help: () => 'Commands: about, skills, contact, projects, clear',
     about: () => 'YOUR NAME — Frontend Engineer. I love building fast, beautiful UIs.',
     skills: () => 'Svelte, React, TypeScript, Node.js, TailwindCSS, PostgreSQL, Docker...',
-    contact: () => 'Email: you@email.com | GitHub: github.com/you',
+    contact: () => 'Email: greatness@gmail.com | GitHub: github.com/greythedevv',
     projects: () => 'Check out the Projects section above ↑',
     clear: () => { history = []; return null; },
   };
@@ -28,7 +28,7 @@
   <div class="terminal" on:click={() => inputEl.focus()}>
     <div class="bar">
       <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="title">yourname@portfolio ~ </span>
+      <span class="title">greatness@portfolio ~ </span>
     </div>
     <div class="output">
       {#each history as line}

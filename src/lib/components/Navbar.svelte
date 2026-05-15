@@ -23,7 +23,7 @@
 <a href="#main-content" class="skip-nav">Skip to main content</a>
 
 <nav class:scrolled aria-label="Main navigation">
-  <a href="/" class="logo" on:click={closeMenu}>YN<span class="dot">.</span></a>
+  <a href="/" class="logo" on:click={closeMenu}>GREY<span class="dot">.</span></a>
 
   <ul class="desktop-links">
     {#each links as link}

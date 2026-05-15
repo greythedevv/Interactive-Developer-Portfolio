@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>YOUR NAME — Developer</title>
+  <title>Greatness — Developer</title>
 </svelte:head>
 
 <Hero />

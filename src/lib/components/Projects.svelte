@@ -1,4 +1,5 @@
 <script>
+  import ScrollReveal from './ScrollReveal.svelte';
   import ProjectCard from './ProjectCard.svelte';
   import { projects } from '$lib/data/projects.js';
 
@@ -8,13 +9,19 @@
 </script>
 
 <section id="projects">
+<ScrollReveal>
   <h2>Projects<span class="accent">.</span></h2>
+    </ScrollReveal>
 
-  <div class="filters">
-    {#each allTags as tag}
-      <button class:active={filter === tag} on:click={() => filter = tag}>{tag}</button>
-    {/each}
-  </div>
+    
+<ScrollReveal delay={100}>
+    <div class="filters">
+      {#each allTags as tag}
+        <button class:active={filter === tag} on:click={() => filter = tag}>{tag}</button>
+      {/each}
+    </div>
+  </ScrollReveal>
+  
 
   <div class="grid">
     {#each filtered as project (project.slug)}
@@ -23,8 +30,13 @@
   </div>
 </section>
 
+  
+
 <style>
-  section { padding: 6rem 2.5rem; }
+  section {  padding: 6rem 1.25rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+} 
   h2 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 2rem; }
   .accent { color: var(--accent); }
   .filters { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem; }
