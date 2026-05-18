@@ -24,9 +24,11 @@
   
 
   <div class="grid">
-    {#each filtered as project (project.slug)}
-      <ProjectCard {project} />
-    {/each}
+      {#each filtered as project, i (project.slug)}
+      <ScrollReveal delay={i * 80}>
+        <ProjectCard {project} />
+      </ScrollReveal>
+      {/each}
   </div>
 </section>
 

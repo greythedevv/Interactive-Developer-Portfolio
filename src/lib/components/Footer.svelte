@@ -23,7 +23,7 @@
     </div>
 
     <nav class="nav-links" aria-label="Footer navigation">
-      <h4>Navigation</h4>
+      <p class="footer-heading">Navigation</p>
       <ul>
         {#each links as link}
           <li><a href={link.href}>{link.label}</a></li>
@@ -32,7 +32,7 @@
     </nav>
 
     <div class="social-col">
-      <h4>Find me online</h4>
+      <p class="footer-heading">Find me online</p>
       <ul class="socials">
         {#each socials as s}
           <li>
@@ -128,6 +128,14 @@
     border-color: var(--accent);
     color: var(--accent);
   }
+  .footer-heading {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
 
   .bottom {
     max-width: 1100px;
