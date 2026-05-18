@@ -3,15 +3,24 @@
   import Projects from '$lib/components/Projects.svelte';
   import Skills from '$lib/components/Skills.svelte';
   import Contact from '$lib/components/Contact.svelte';
-  import Terminal from '$lib/components/Terminal.svelte';
+  import { onMount } from 'svelte';
+
+  let Terminal;
+  onMount(async () => {
+    const mod = await import('$lib/components/Terminal.svelte');
+    Terminal = mod.default;
+  });
 </script>
 
 <svelte:head>
-  <title>Greatness — Developer</title>
+  <title>Grey — Frontend Developer</title>
+  <meta name="description" content="Grey — Frontend Engineer building fast, beautiful web experiences." />
 </svelte:head>
 
 <Hero />
 <Projects />
 <Skills />
-<Terminal />
+{#if Terminal}
+  <svelte:component this={Terminal} />
+{/if}
 <Contact />

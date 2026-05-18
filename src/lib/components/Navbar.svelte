@@ -1,6 +1,5 @@
 <script>
   import ThemeToggle from './ThemeToggle.svelte';
-  import { page } from '$app/stores';
 
   const links = [
     { href: '#projects', label: 'Projects' },
@@ -15,15 +14,16 @@
   function closeMenu() { menuOpen = false; }
 
   if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', () => { scrolled = window.scrollY > 50; });
+    window.addEventListener('scroll', () => {
+      scrolled = window.scrollY > 50;
+    });
   }
 </script>
 
-<!-- Skip navigation link for accessibility -->
 <a href="#main-content" class="skip-nav">Skip to main content</a>
 
 <nav class:scrolled aria-label="Main navigation">
-  <a href="/" class="logo" on:click={closeMenu}>GREY<span class="dot">.</span></a>
+  <a href="/" class="logo" on:click={closeMenu}>GR<span class="dot">.</span></a>
 
   <ul class="desktop-links">
     {#each links as link}
@@ -48,19 +48,23 @@
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 <div id="mobile-menu" class="mobile-menu" class:open={menuOpen} aria-hidden={!menuOpen}>
   <ul>
     {#each links as link}
       <li>
-        <a href={link.href} on:click={closeMenu}>{link.label}</a>
+        <a href={link.href} on:click={closeMenu} tabindex={menuOpen ? 0 : -1}>
+          {link.label}
+        </a>
       </li>
     {/each}
-    <li><a href="/resume.pdf" download on:click={closeMenu}>Resume ↓</a></li>
+    <li>
+      <a href="/resume.pdf" download on:click={closeMenu} tabindex={menuOpen ? 0 : -1}>
+        Resume ↓
+      </a>
+    </li>
   </ul>
 </div>
 
-<!-- Backdrop -->
 {#if menuOpen}
   <div class="backdrop" on:click={closeMenu} aria-hidden="true"></div>
 {/if}
@@ -139,7 +143,6 @@
   }
   .btn:hover { opacity: 0.85; }
 
-  /* Hamburger */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -165,7 +168,6 @@
   .hamburger span.open:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .hamburger span.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* Mobile menu */
   .mobile-menu {
     position: fixed;
     top: 0; right: 0;
